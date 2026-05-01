@@ -37,7 +37,7 @@ function Hero() {
     <section id="top" className="relative pt-24 pb-32 lg:pt-36 lg:pb-44">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary mb-8">
+          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary mb-8 font-bold">
             <span className="h-px w-8 bg-primary" />
             Pilotage de studio
           </div>
@@ -45,7 +45,7 @@ function Hero() {
             D120 : le pilotage opérationnel et financier conçu pour les{" "}
             <span className="text-primary">studios de production audiovisuelle</span>.
           </h1>
-          <p className="mt-8 text-lg md:text-xl text-secondary/70 max-w-2xl leading-relaxed font-light">
+          <p className="mt-8 text-lg md:text-xl text-secondary/70 max-w-2xl leading-relaxed font-normal">
             Nous co-construisons avec vous un outil sur-mesure, adapté à vos process et à votre équipe.
           </p>
           <div className="mt-12 flex flex-wrap items-center gap-6">
@@ -72,7 +72,7 @@ function Proof() {
     <section className="py-16 border-y border-border/60 bg-accent/20">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-          <div className="text-xs uppercase tracking-[0.2em] text-primary font-medium shrink-0">
+          <div className="text-xs uppercase tracking-[0.2em] text-primary shrink-0 font-bold">
             Déjà déployé
           </div>
           <p className="text-xl md:text-2xl font-display font-light text-secondary leading-snug">
@@ -108,7 +108,7 @@ function Pains() {
     <section id="enjeux" className="py-28 lg:py-40">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="max-w-2xl mb-20">
-          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6">Les enjeux</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">Les enjeux</div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
             Trois angles morts qui freinent les studios aujourd'hui.
           </h2>
@@ -127,7 +127,7 @@ function Pains() {
                 <h3 className="text-xl md:text-2xl font-medium leading-snug">{p.title}</h3>
               </div>
               <div className="md:col-span-4">
-                <p className="text-secondary/70 leading-relaxed font-light">{p.body}</p>
+                <p className="text-secondary/70 leading-relaxed font-normal">{p.body}</p>
               </div>
             </article>
           ))}
@@ -142,12 +142,12 @@ function Vision() {
     <section id="vision" className="py-28 lg:py-40 bg-secondary text-background">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="max-w-3xl">
-          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-8">Vision</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-8 font-bold">Vision</div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-background">
             Vers une production pilotée par l'IA.
           </h2>
-          <p className="mt-10 text-lg md:text-xl text-background/75 leading-relaxed font-light">
-            Les plateformes de voix IA transforment la production audiovisuelle. D120 prépare dès aujourd'hui les outils qui permettront demain de lire un brief client, estimer un coût IA maximal, et créer un projet automatiquement.
+          <p className="mt-10 text-lg md:text-xl text-background/75 leading-relaxed font-normal">
+            Les plateformes de génération IA transforment la production audiovisuelle. D120 prépare dès aujourd'hui les outils qui permettront demain de lire un brief client, estimer un coût IA maximal, et créer un projet automatiquement.
           </p>
         </div>
       </div>
@@ -161,11 +161,11 @@ function About() {
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
-            <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6">À propos</div>
+            <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">À propos</div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">Qui est D120</h2>
           </div>
           <div className="md:col-span-8 md:pt-2">
-            <div className="space-y-6 text-lg text-secondary/80 leading-relaxed font-light">
+            <div className="space-y-6 text-lg text-secondary/80 leading-relaxed font-normal">
               <p>
                 Vincent a un TDAH. Depuis toujours, il ne supporte pas l'information éparpillée. Ingénieur de formation, commercial pendant 6 ans, il a développé par nécessité une obsession : <span className="text-secondary font-normal">centraliser, structurer, rendre lisible ce qui ne l'est pas.</span>
               </p>
