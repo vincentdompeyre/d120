@@ -1,12 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import logo from "@/assets/d120-logo.png";
 import vincent from "@/assets/vincent.jpg";
+import { Reveal, StaggerGroup, staggerItem } from "@/components/Reveal";
 
 const CAL_URL = "https://cal.com/vincent-dompeyre/rdv-de-decouverte";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
+
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 25, mass: 0.3 });
+  return (
+    <motion.div
+      style={{ scaleX, transformOrigin: "0% 50%" }}
+      className="fixed top-0 left-0 right-0 h-[2px] bg-primary z-50"
+    />
+  );
+}
 
 function Header() {
   return (
@@ -34,44 +47,68 @@ function Header() {
 }
 
 function Hero() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 600], [0, -60]);
+  const opacity = useTransform(scrollY, [0, 500], [1, 0.4]);
+
   return (
-    <section id="top" className="relative pt-24 pb-32 lg:pt-36 lg:pb-44">
-      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+    <section id="top" className="relative pt-24 pb-32 lg:pt-36 lg:pb-44 overflow-hidden">
+      <motion.div style={{ y, opacity }} className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary mb-8 font-bold">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary mb-8 font-bold"
+          >
             <span className="h-px w-8 bg-primary" />
             Pilotage de studio
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.05] text-secondary">
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.05] text-secondary"
+          >
             D120 : le pilotage opérationnel et financier conçu pour les{" "}
             <span className="text-primary">studios de production audiovisuelle</span>.
-          </h1>
-          <p className="mt-8 text-lg md:text-xl text-secondary/70 max-w-2xl leading-relaxed font-medium">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 text-lg md:text-xl text-secondary/70 max-w-2xl leading-relaxed font-medium"
+          >
             Nous co-construisons avec vous un ERP sur-mesure, adapté à vos process et à votre équipe.
-          </p>
-          <div className="mt-12 flex flex-wrap items-center gap-6">
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-12 flex flex-wrap items-center gap-6"
+          >
             <a
               href={CAL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-base font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25"
+              className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-base font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
             >
               Prendre un rendez-vous
               <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none">
                 <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
 
 function Proof() {
   return (
-    <section className="py-16 border-y border-border/60 bg-accent/20">
-      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+    <section className="py-16 border-y border-border/60 bg-accent/20 overflow-hidden">
+      <Reveal className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
           <div className="text-xs uppercase tracking-[0.2em] text-primary shrink-0 font-bold">
             Déjà déployé
@@ -81,7 +118,7 @@ function Proof() {
             <span className="font-medium">5 M€ de chiffre d'affaires</span> en région lyonnaise.
           </p>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -106,19 +143,20 @@ const pains = [
 
 function Pains() {
   return (
-    <section id="enjeux" className="py-28 lg:py-40">
+    <section id="enjeux" className="py-28 lg:py-40 overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <div className="max-w-2xl mb-20">
+        <Reveal className="max-w-2xl mb-20">
           <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">Les enjeux</div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
             Trois angles morts qui freinent les studios aujourd'hui.
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="space-y-px">
-          {pains.map((p, i) => (
-            <article
+        <StaggerGroup className="space-y-px" stagger={0.15}>
+          {pains.map((p) => (
+            <motion.article
               key={p.n}
+              variants={staggerItem}
               className="group grid md:grid-cols-12 gap-8 py-12 lg:py-16 border-t border-border/60 last:border-b transition-colors hover:bg-accent/15"
             >
               <div className="md:col-span-2">
@@ -130,9 +168,9 @@ function Pains() {
               <div className="md:col-span-4">
                 <p className="text-secondary/70 leading-relaxed font-normal">{p.body}</p>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );
@@ -140,9 +178,9 @@ function Pains() {
 
 function Vision() {
   return (
-    <section id="vision" className="py-28 lg:py-40 bg-secondary text-background">
+    <section id="vision" className="py-28 lg:py-40 bg-secondary text-background overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <div className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <div className="text-xs uppercase tracking-[0.2em] text-primary mb-8 font-bold">Vision</div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-background">
             Vers une production pilotée par l'IA.
@@ -150,7 +188,7 @@ function Vision() {
           <p className="mt-10 text-lg md:text-xl text-background/75 leading-relaxed font-normal">
             Les plateformes de génération IA transforment la production audiovisuelle. D120 prépare dès aujourd'hui les outils qui permettront demain de lire un brief client, estimer un coût IA maximal, et créer un projet automatiquement.
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -158,32 +196,34 @@ function Vision() {
 
 function About() {
   return (
-    <section id="qui" className="py-28 lg:py-40">
+    <section id="qui" className="py-28 lg:py-40 overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="grid md:grid-cols-12 gap-12">
-          <div className="md:col-span-4">
+          <Reveal className="md:col-span-4">
             <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">À propos</div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">Qui est D120</h2>
-          </div>
+          </Reveal>
           <div className="md:col-span-8 md:pt-2">
-            <div className="space-y-6 text-lg text-secondary/80 leading-relaxed font-normal">
-              <p>
+            <StaggerGroup className="space-y-6 text-lg text-secondary/80 leading-relaxed font-normal" stagger={0.15}>
+              <motion.p variants={staggerItem}>
                 Vincent a un TDAH. Depuis toujours, il ne supporte pas l'information éparpillée. Ingénieur de formation, commercial pendant 6 ans, il a développé par nécessité une obsession : <span className="text-secondary font-normal">centraliser, structurer, rendre lisible ce qui ne l'est pas.</span>
-              </p>
-              <p>
+              </motion.p>
+              <motion.p variants={staggerItem}>
                 En découvrant la production audiovisuelle, il a trouvé son terrain : un secteur exigeant, en pleine mutation avec l'IA, et encore très dépendant d'Excel pour piloter des projets complexes.
-              </p>
-              <p>
+              </motion.p>
+              <motion.p variants={staggerItem}>
                 D120 est né de cette rencontre, entre une méthode et un métier qui en avait besoin.
-              </p>
-              <div className="pt-8">
-                <img
+              </motion.p>
+              <motion.div variants={staggerItem} className="pt-8">
+                <motion.img
                   src={vincent}
                   alt="Vincent Dompeyre"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
                   className="h-32 w-32 rounded-full object-cover border-4 border-primary"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </StaggerGroup>
           </div>
         </div>
       </div>
@@ -193,8 +233,8 @@ function About() {
 
 function FinalCTA() {
   return (
-    <section className="bg-primary">
-      <div className="mx-auto max-w-6xl px-6 lg:px-10 py-24 lg:py-36 text-center">
+    <section className="bg-primary overflow-hidden">
+      <Reveal className="mx-auto max-w-6xl px-6 lg:px-10 py-24 lg:py-36 text-center">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-primary-foreground leading-tight">
           Parlons de votre studio.
         </h2>
@@ -203,7 +243,7 @@ function FinalCTA() {
             href={CAL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 rounded-full bg-secondary px-8 py-4 text-base font-medium text-background transition-all hover:bg-secondary/90 hover:shadow-2xl"
+            className="group inline-flex items-center gap-3 rounded-full bg-secondary px-8 py-4 text-base font-medium text-background transition-all hover:bg-secondary/90 hover:shadow-2xl hover:-translate-y-0.5"
           >
             Prendre un rendez-vous
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none">
@@ -211,7 +251,7 @@ function FinalCTA() {
             </svg>
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -232,6 +272,7 @@ function Footer() {
 function Index() {
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       <Header />
       <main>
         <Hero />
