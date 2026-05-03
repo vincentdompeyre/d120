@@ -49,11 +49,10 @@ function Header() {
 function Hero() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 600], [0, -60]);
-  const opacity = useTransform(scrollY, [0, 500], [1, 0.4]);
 
   return (
     <section id="top" className="relative pt-24 pb-32 lg:pt-36 lg:pb-44 overflow-hidden">
-      <motion.div style={{ y, opacity }} className="mx-auto max-w-6xl px-6 lg:px-10">
+      <motion.div style={{ y }} className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
