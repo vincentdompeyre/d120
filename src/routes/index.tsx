@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logo from "@/assets/d120-logo.png";
+import vincent from "@/assets/vincent.jpg";
 
 const CAL_URL = "https://cal.com/vincent-dompeyre/rdv-de-decouverte";
 
@@ -175,6 +176,13 @@ function About() {
               <p>
                 D120 est né de cette rencontre, entre une méthode et un métier qui en avait besoin.
               </p>
+              <div className="pt-8">
+                <img
+                  src={vincent}
+                  alt="Vincent Dompeyre"
+                  className="h-32 w-32 rounded-full object-cover border-4 border-primary"
+                />
+              </div>
             </div>
           </div>
         </div>
