@@ -46,8 +46,8 @@ function Hero() {
             D120 : le pilotage opérationnel et financier conçu pour les{" "}
             <span className="text-primary">studios de production audiovisuelle</span>.
           </h1>
-          <p className="mt-8 text-lg md:text-xl text-secondary/70 max-w-2xl leading-relaxed font-normal">
-            Nous co-construisons avec vous un outil sur-mesure, adapté à vos process et à votre équipe.
+          <p className="mt-8 text-lg md:text-xl text-secondary/70 max-w-2xl leading-relaxed font-medium">
+            Nous co-construisons avec vous un ERP sur-mesure, adapté à vos process et à votre équipe.
           </p>
           <div className="mt-12 flex flex-wrap items-center gap-6">
             <a
@@ -90,7 +90,7 @@ const pains = [
   {
     n: "01",
     title: "La planification de vos productions mobilise vos chargés de prod. Au détriment du pilotage.",
-    body: "D120 centralise la vision de vos ressources : studios, matériel, intervenants humains et IA. Pour que votre équipe arbitre vite, sans aller-retour.",
+    body: "Nous modélisons les coûts et la marge de chaque type de production : sessions studio classiques, génération IA, ou hybride. Pour que vous arbitriez sur des chiffres, pas sur des impressions.",
   },
   {
     n: "02",
