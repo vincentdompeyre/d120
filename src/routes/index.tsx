@@ -136,7 +136,7 @@ const pains = [
   {
     n: "03",
     title: "Humain ou IA : vous prenez encore cette décision à l'instinct.",
-    body: "D120 modélise les coûts et la marge de chaque type de production : sessions studio classiques, génération IA, ou hybride — pour que vous arbitriez sur des chiffres, pas sur des impressions.",
+    body: "Nous modélisons les coûts et la marge de chaque type de production : sessions studio classiques, génération IA, ou hybride — pour que vous arbitriez sur des chiffres, pas sur des impressions.",
   },
 ];
 
