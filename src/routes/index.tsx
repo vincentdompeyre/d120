@@ -131,7 +131,7 @@ const pains = [
   {
     n: "02",
     title: "Vous savez que certains projets vous coûtent plus qu'ils ne rapportent. Mais vous ne savez pas lesquels.",
-    body: "Nous modélisons les coûts et la marge de chaque type de production : sessions studio classiques, génération IA, ou hybride — pour que vous arbitriez sur des chiffres, pas sur des impressions.",
+    body: "Nous calculons la marge nette de chaque projet en temps réel — coûts humains, coûts fixes, rémunérations. Et prépare l'intégration native des coûts de génération IA pour piloter la rentabilité de demain.",
   },
   {
     n: "03",
