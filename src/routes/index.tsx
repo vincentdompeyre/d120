@@ -126,7 +126,7 @@ const pains = [
   {
     n: "01",
     title: "La planification de vos productions mobilise vos chargés de prod. Au détriment du pilotage.",
-    body: "Nous modélisons les coûts et la marge de chaque type de production : sessions studio classiques, génération IA, ou hybride. Pour que vous arbitriez sur des chiffres, pas sur des impressions.",
+    body: "Nous centralisons la vision de vos ressources — studios, intervenants humains et IA — pour que votre équipe arbitre vite, sans aller-retour.",
   },
   {
     n: "02",
