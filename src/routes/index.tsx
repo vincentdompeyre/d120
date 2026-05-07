@@ -14,8 +14,8 @@ import {
 } from "@/components/ui/carousel";
 
 const screenshots = [
-  { src: rentabilite, alt: "Vue rentabilité projet — marge nette, coûts, ventilation des rémunérations" },
   { src: planning, alt: "Planning des sessions par studio et affectations par personne" },
+  { src: rentabilite, alt: "Vue rentabilité projet — marge nette, coûts, ventilation des rémunérations" },
 ];
 
 function Screenshots() {
