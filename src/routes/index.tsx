@@ -22,12 +22,6 @@ function Screenshots() {
   return (
     <section className="py-28 lg:py-40 bg-accent/20 overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
-        <Reveal className="max-w-2xl mb-16">
-          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">Aperçu</div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-            Quelques vues du produit.
-          </h2>
-        </Reveal>
         <Reveal>
           <Carousel opts={{ loop: true }} className="px-12">
             <CarouselContent>
