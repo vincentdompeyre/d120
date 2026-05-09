@@ -21,7 +21,7 @@ const CAL_URL = "https://cal.com/vincent-dompeyre/rdv-de-decouverte";
 
 function Screenshots() {
   return (
-    <section className="py-28 lg:py-40 bg-accent/20 overflow-hidden">
+    <section className="py-20 lg:py-28 bg-accent/20 overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="max-w-2xl mb-16">
           <div className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Aperçu</div>
@@ -178,7 +178,7 @@ const pains = [
 
 function Pains() {
   return (
-    <section id="enjeux" className="py-28 lg:py-40 overflow-hidden">
+    <section id="enjeux" className="py-20 lg:py-28 overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="max-w-2xl mb-20">
           <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">Les enjeux</div>
@@ -213,7 +213,7 @@ function Pains() {
 
 function Vision() {
   return (
-    <section id="vision" className="py-28 lg:py-40 bg-secondary text-background overflow-hidden">
+    <section id="vision" className="py-20 lg:py-28 bg-secondary text-background overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="max-w-3xl">
           <div className="text-xs uppercase tracking-[0.2em] text-primary mb-8 font-bold">Vision</div>
@@ -231,7 +231,7 @@ function Vision() {
 
 function About() {
   return (
-    <section id="qui" className="py-28 lg:py-40 overflow-hidden">
+    <section id="qui" className="py-20 lg:py-28 overflow-hidden">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="grid md:grid-cols-12 gap-12">
           <Reveal className="md:col-span-4">
@@ -269,7 +269,7 @@ function About() {
 function FinalCTA() {
   return (
     <section className="bg-primary overflow-hidden">
-      <Reveal className="mx-auto max-w-6xl px-6 lg:px-10 py-24 lg:py-36 text-center">
+      <Reveal className="mx-auto max-w-6xl px-6 lg:px-10 py-16 lg:py-24 text-center">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-primary-foreground leading-tight">
           Parlons de votre studio.
         </h2>
