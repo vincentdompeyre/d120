@@ -21,7 +21,7 @@ const CAL_URL = "https://cal.com/vincent-dompeyre/rdv-de-decouverte";
 
 function Screenshots() {
   return (
-    <section className="py-20 lg:py-28 bg-accent/20 overflow-hidden">
+    <section className="lg:py-28 bg-accent/20 overflow-hidden py-[40px]">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="max-w-2xl mb-16">
           <div className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Aperçu</div>
