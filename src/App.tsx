@@ -87,7 +87,7 @@ function Hero() {
   const y = useTransform(scrollY, [0, 600], [0, -60]);
 
   return (
-    <section id="top" className="relative pt-24 pb-32 lg:pt-36 lg:pb-44 overflow-hidden">
+    <section id="top" className="relative pt-24 pb-32 lg:pt-36 lg:pb-44 overflow-hidden py-[60px]">
       <motion.div style={{ y }} className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="max-w-4xl">
           <motion.div
