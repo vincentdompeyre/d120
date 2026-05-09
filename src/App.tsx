@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import logo from "@/assets/d120-logo.png";
 import vincent from "@/assets/vincent.jpg";
@@ -17,6 +16,8 @@ const screenshots = [
   { src: planning, alt: "Planning des sessions par studio et affectations par personne" },
   { src: rentabilite, alt: "Vue rentabilité projet — marge nette, coûts, ventilation des rémunérations" },
 ];
+
+const CAL_URL = "https://cal.com/vincent-dompeyre/rdv-de-decouverte";
 
 function Screenshots() {
   return (
@@ -44,12 +45,6 @@ function Screenshots() {
     </section>
   );
 }
-
-const CAL_URL = "https://cal.com/vincent-dompeyre/rdv-de-decouverte";
-
-export const Route = createFileRoute("/")({
-  component: Index,
-});
 
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
@@ -309,7 +304,7 @@ function Footer() {
   );
 }
 
-function Index() {
+export default function App() {
   return (
     <div className="min-h-screen bg-background">
       <ScrollProgress />
