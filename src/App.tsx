@@ -178,7 +178,7 @@ const pains = [
 
 function Pains() {
   return (
-    <section id="enjeux" className="py-20 lg:py-28 overflow-hidden">
+    <section id="enjeux" className="lg:py-28 overflow-hidden py-[60px]">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="max-w-2xl mb-20">
           <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">Les enjeux</div>
