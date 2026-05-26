@@ -162,12 +162,12 @@ const pains = [
   {
     n: "01",
     title: "La planification de vos productions mobilise vos chargés de prod. Au détriment du pilotage.",
-    body: "Nous centralisons la vision de vos ressources — studios, intervenants humains et IA — pour que votre équipe arbitre vite, sans aller-retour.",
+    body: "Nous centralisons la vision de vos ressources — studios, intervenants humains et IA — pour que votre équipe arbitre vite, sans aller-retour. Vous maximisez l'occupation de vos studios, et donc votre chiffre d'affaires.",
   },
   {
     n: "02",
     title: "Vous savez que certains projets vous coûtent plus qu'ils ne rapportent. Mais vous ne savez pas lesquels.",
-    body: "Nous calculons la marge nette de chaque projet en temps réel — coûts humains, coûts fixes, rémunérations. Et prépare l'intégration native des coûts de génération IA pour piloter la rentabilité de demain.",
+    body: "Nous calculons la marge nette de chaque projet en temps réel — coûts humains, coûts fixes, rémunérations. Et prépare l'intégration native des coûts de génération IA pour piloter et donc optimiser votre rentabilité de demain.",
   },
   {
     n: "03",
