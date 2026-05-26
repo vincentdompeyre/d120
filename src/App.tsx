@@ -62,7 +62,7 @@ function Header() {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/40">
       <div className="mx-auto max-w-6xl px-6 lg:px-10 h-20 flex items-center justify-between">
         <a href="#top" className="flex items-center">
-          <img src={logo} alt="D120" className="h-9 w-auto" />
+          <img src={logo} alt="D120 - Pilotage de studio" className="h-9 w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-10 text-sm text-secondary/80">
           <a href="#enjeux" className="hover:text-primary transition-colors">Enjeux</a>

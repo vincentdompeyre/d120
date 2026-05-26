@@ -1,0 +1,9 @@
+# D120
+
+> D120 co-construit avec les studios de production audiovisuelle un ERP sur-mesure pour piloter ressources, marges et arbitrages humain/IA.
+
+D120 est un logiciel de gestion et de pilotage opérationnel et financier conçu pour les studios de production audiovisuelle. Il centralise la planification des ressources (studios, intervenants humains et IA), calcule la marge nette des projets en temps réel, et modélise les coûts des productions classiques, IA ou hybrides.
+
+## Pages
+
+- [Accueil](/): Présentation de D120, enjeux des studios, vision et prise de rendez-vous.
