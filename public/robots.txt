@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://d120.lovable.app/sitemap.xml
+Sitemap: https://www.d120.fr/sitemap.xml
