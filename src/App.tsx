@@ -154,15 +154,10 @@ function Proof() {
   return (
     <section className="py-16 border-y border-border/60 bg-accent/20 overflow-hidden">
       <Reveal className="mx-auto max-w-6xl px-6 lg:px-10">
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-          <div className="text-xs uppercase tracking-[0.2em] text-primary shrink-0 font-bold">
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-6">
+          <div className="text-xs uppercase tracking-[0.2em] text-primary shrink-0 font-bold self-start md:self-auto">
             Déjà déployé
           </div>
-          <img
-            src={clientLogo}
-            alt="Logo du studio client"
-            className="h-10 w-auto shrink-0 order-first md:order-none"
-          />
           <p className="text-xl md:text-2xl font-display font-light text-secondary leading-snug">
             Dans un studio de doublage de{" "}
             <span className="font-medium">
@@ -174,6 +169,11 @@ function Proof() {
             </span>{" "}
             en région lyonnaise.
           </p>
+          <img
+            src={clientLogo}
+            alt="Logo anatole Studio"
+            className="h-28 md:h-44 w-auto shrink-0 md:ml-auto"
+          />
         </div>
       </Reveal>
     </section>
@@ -265,27 +265,53 @@ function Process() {
           </h2>
         </Reveal>
 
-        <div className="relative">
+        <div className="relative mb-10 md:mb-14">
           <motion.div
             aria-hidden
-            className="hidden md:block absolute top-[0.55rem] left-0 right-0 h-px bg-border origin-left"
+            className="hidden md:block absolute top-1/2 left-0 right-0 h-px bg-border -translate-y-1/2 origin-left"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           />
-          <StaggerGroup className="grid md:grid-cols-3 gap-10 lg:gap-12 relative" stagger={0.15}>
-            {steps.map((s) => (
-              <motion.div key={s.n} variants={staggerItem} className="relative">
-                <div className="text-sm font-display font-medium text-primary tracking-wider mb-4 bg-accent/10 md:bg-transparent w-fit pr-3">
-                  {s.n}
+          <div className="hidden md:grid grid-cols-3 gap-10 lg:gap-12 relative">
+            {steps.map((s, i) => (
+              <div key={s.n} className="flex justify-start py-4">
+                <div className="relative h-3 w-3">
+                  <motion.span
+                    aria-hidden
+                    className="absolute inset-0 rounded-full bg-primary/50"
+                    initial={{ scale: 1, opacity: 0.6 }}
+                    whileInView={{ scale: 2.4, opacity: 0 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ duration: 1.1, delay: 0.4 + i * 0.15, ease: "easeOut" }}
+                  />
+                  <motion.span
+                    className="relative block h-3 w-3 rounded-full bg-primary"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ duration: 0.5, delay: 0.15 * i, ease: [0.22, 1, 0.36, 1] }}
+                  />
                 </div>
-                <h3 className="text-xl md:text-2xl font-medium leading-snug mb-3">{s.title}</h3>
-                <p className="text-secondary/70 leading-relaxed font-normal">{s.body}</p>
-              </motion.div>
+              </div>
             ))}
-          </StaggerGroup>
+          </div>
         </div>
+
+        <StaggerGroup className="grid md:grid-cols-3 gap-10 lg:gap-12" stagger={0.15}>
+          {steps.map((s) => (
+            <motion.div key={s.n} variants={staggerItem} className="group relative">
+              <div className="text-sm font-display font-medium text-primary tracking-wider mb-4 transition-transform duration-300 ease-out group-hover:translate-x-1">
+                {s.n}
+              </div>
+              <h3 className="text-xl md:text-2xl font-medium leading-snug mb-3 transition-colors duration-300 group-hover:text-primary">
+                {s.title}
+              </h3>
+              <p className="text-secondary/70 leading-relaxed font-normal">{s.body}</p>
+            </motion.div>
+          ))}
+        </StaggerGroup>
       </div>
     </section>
   );
