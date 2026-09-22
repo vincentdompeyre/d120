@@ -1,9 +1,11 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import logo from "@/assets/d120-logo.png";
+import clientLogo from "@/assets/client-logo.png";
 import vincent from "@/assets/vincent.jpg";
 import rentabilite from "@/assets/rentabilite.png";
 import planning from "@/assets/planning.png";
 import { Reveal, StaggerGroup, staggerItem } from "@/components/Reveal";
+import { AnimatedNumber } from "@/components/AnimatedNumber";
 import {
   Carousel,
   CarouselContent,
@@ -27,7 +29,7 @@ function Screenshots() {
           <div className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Aperçu</div>
         </Reveal>
         <Reveal>
-          <Carousel opts={{ loop: true }} className="px-12">
+          <Carousel opts={{ loop: true, duration: 28 }} className="px-12">
             <CarouselContent>
               {screenshots.map((s) => (
                 <CarouselItem key={s.src}>
@@ -62,10 +64,18 @@ function Header() {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/40">
       <div className="mx-auto max-w-6xl px-6 lg:px-10 h-20 flex items-center justify-between">
         <a href="#top" className="flex items-center">
-          <img src={logo} alt="D120 - Pilotage de studio" className="h-9 w-auto" />
+          <motion.img
+            src={logo}
+            alt="D120 - Pilotage de studio"
+            className="h-9 w-auto"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          />
         </a>
         <nav className="hidden md:flex items-center gap-10 text-sm text-secondary/80">
           <a href="#enjeux" className="hover:text-primary transition-colors">Enjeux</a>
+          <a href="#methode" className="hover:text-primary transition-colors">Méthode</a>
           <a href="#vision" className="hover:text-primary transition-colors">Vision</a>
           <a href="#qui" className="hover:text-primary transition-colors">À propos</a>
         </nav>
@@ -148,9 +158,21 @@ function Proof() {
           <div className="text-xs uppercase tracking-[0.2em] text-primary shrink-0 font-bold">
             Déjà déployé
           </div>
+          <img
+            src={clientLogo}
+            alt="Logo du studio client"
+            className="h-10 w-auto shrink-0 order-first md:order-none"
+          />
           <p className="text-xl md:text-2xl font-display font-light text-secondary leading-snug">
-            Dans un studio de doublage de <span className="font-medium">50 personnes</span> et{" "}
-            <span className="font-medium">5 M€ de chiffre d'affaires</span> en région lyonnaise.
+            Dans un studio de doublage de{" "}
+            <span className="font-medium">
+              <AnimatedNumber value={50} /> personnes
+            </span>{" "}
+            et{" "}
+            <span className="font-medium">
+              <AnimatedNumber value={5} /> M€ de chiffre d'affaires
+            </span>{" "}
+            en région lyonnaise.
           </p>
         </div>
       </Reveal>
@@ -192,10 +214,13 @@ function Pains() {
             <motion.article
               key={p.n}
               variants={staggerItem}
-              className="group grid md:grid-cols-12 gap-8 py-12 lg:py-16 border-t border-border/60 last:border-b transition-colors hover:bg-accent/15"
+              className="group relative grid md:grid-cols-12 gap-8 py-12 lg:py-16 border-t border-border/60 last:border-b transition-colors hover:bg-accent/15"
             >
+              <div className="absolute left-0 top-0 bottom-0 w-px bg-primary origin-top scale-y-0 transition-transform duration-500 ease-out group-hover:scale-y-100" />
               <div className="md:col-span-2">
-                <div className="text-sm font-display font-medium text-primary tracking-wider">{p.n}</div>
+                <div className="text-sm font-display font-medium text-primary tracking-wider transition-transform duration-300 ease-out group-hover:translate-x-2">
+                  {p.n}
+                </div>
               </div>
               <div className="md:col-span-6">
                 <h3 className="text-xl md:text-2xl font-medium leading-snug">{p.title}</h3>
@@ -211,10 +236,71 @@ function Pains() {
   );
 }
 
+const steps = [
+  {
+    n: "01",
+    title: "Audit",
+    body: "Plusieurs ateliers sur site pour cartographier vos process et vos données business, créer une architecture système, et dessiner une expérience utilisateur.",
+  },
+  {
+    n: "02",
+    title: "Co-construction",
+    body: "Nous développons avec vous, par itérations courtes, uniquement les modules dont votre équipe a besoin. Vous validez à chaque étape — pas de développement figé sur un cahier des charges qui aura changé six mois plus tard.",
+  },
+  {
+    n: "03",
+    title: "Déploiement & formation",
+    body: "Mise en production progressive, formation de vos équipes, et ajustements pendant les premières semaines d'usage réel — jusqu'à ce que l'outil colle vraiment à votre façon de travailler.",
+  },
+];
+
+function Process() {
+  return (
+    <section id="methode" className="lg:py-28 bg-accent/10 overflow-hidden py-[60px]">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+        <Reveal className="max-w-2xl mb-20">
+          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">Méthode</div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
+            Comment nous construisons votre ERP.
+          </h2>
+        </Reveal>
+
+        <div className="relative">
+          <motion.div
+            aria-hidden
+            className="hidden md:block absolute top-[0.55rem] left-0 right-0 h-px bg-border origin-left"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          />
+          <StaggerGroup className="grid md:grid-cols-3 gap-10 lg:gap-12 relative" stagger={0.15}>
+            {steps.map((s) => (
+              <motion.div key={s.n} variants={staggerItem} className="relative">
+                <div className="text-sm font-display font-medium text-primary tracking-wider mb-4 bg-accent/10 md:bg-transparent w-fit pr-3">
+                  {s.n}
+                </div>
+                <h3 className="text-xl md:text-2xl font-medium leading-snug mb-3">{s.title}</h3>
+                <p className="text-secondary/70 leading-relaxed font-normal">{s.body}</p>
+              </motion.div>
+            ))}
+          </StaggerGroup>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Vision() {
   return (
-    <section id="vision" className="py-20 lg:py-28 bg-secondary text-background overflow-hidden">
-      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+    <section id="vision" className="relative py-20 lg:py-28 bg-secondary text-background overflow-hidden">
+      <motion.div
+        aria-hidden
+        className="absolute -right-24 top-1/2 -translate-y-1/2 w-[28rem] h-[28rem] rounded-full bg-primary/20 blur-3xl pointer-events-none"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="max-w-3xl">
           <div className="text-xs uppercase tracking-[0.2em] text-primary mb-8 font-bold">Vision</div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-background">
@@ -313,6 +399,7 @@ export default function App() {
         <Hero />
         <Proof />
         <Pains />
+        <Process />
         <Screenshots />
         <Vision />
         <About />
