@@ -2,26 +2,14 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import logo from "@/assets/d120-logo.png";
 import clientLogo from "@/assets/client-logo.png";
 import vincent from "@/assets/vincent.jpg";
-import rentabilite from "@/assets/rentabilite.png";
-import planning from "@/assets/planning.png";
 import { Reveal, StaggerGroup, staggerItem } from "@/components/Reveal";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-
-const screenshots = [
-  { src: planning, alt: "Planning des sessions par studio et affectations par personne" },
-  { src: rentabilite, alt: "Vue rentabilité projet — marge nette, coûts, ventilation des rémunérations" },
-];
 
 const CAL_URL = "https://cal.com/vincent-dompeyre/rdv-de-decouverte";
 
-function Screenshots() {
+const VIMEO_ID = "1235132003";
+
+function DemoVideo() {
   return (
     <section className="lg:py-28 bg-accent/20 overflow-hidden py-[40px]">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
@@ -29,19 +17,14 @@ function Screenshots() {
           <div className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Aperçu</div>
         </Reveal>
         <Reveal>
-          <Carousel opts={{ loop: true, duration: 28 }} className="px-12">
-            <CarouselContent>
-              {screenshots.map((s) => (
-                <CarouselItem key={s.src}>
-                  <div className="rounded-2xl overflow-hidden border border-border/60 bg-background shadow-xl">
-                    <img src={s.src} alt={s.alt} className="w-full h-auto block" />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+          <div className="relative aspect-video rounded-2xl overflow-hidden border border-border/60 bg-background shadow-xl">
+            <iframe
+              src={`https://player.vimeo.com/video/${VIMEO_ID}?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0`}
+              className="absolute inset-0 h-full w-full"
+              allow="autoplay; fullscreen; picture-in-picture"
+              title="Démo D120 — interface de pilotage"
+            />
+          </div>
         </Reveal>
       </div>
     </section>
@@ -463,7 +446,7 @@ export default function App() {
         <Proof />
         <Pains />
         <Process />
-        <Screenshots />
+        <DemoVideo />
         <Vision />
         <About />
         <FinalCTA />
