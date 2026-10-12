@@ -184,17 +184,17 @@ const pains = [
   {
     n: "01",
     title: "La planification de vos productions mobilise vos chargés de prod. Au détriment du pilotage.",
-    body: "Nous centralisons la vision de vos ressources — studios, intervenants humains et IA — pour que votre équipe arbitre vite, sans aller-retour. Vous maximisez l'occupation de vos studios, et donc votre chiffre d'affaires.",
+    body: "Nous centralisons la vision de vos ressources : intervenants humains, studios, matériels — pour que votre équipe arbitre vite, sans aller-retour. Vous maximisez l'occupation de vos studios, et donc votre chiffre d'affaires.",
   },
   {
     n: "02",
     title: "Vous savez que certains projets vous coûtent plus qu'ils ne rapportent. Mais vous ne savez pas lesquels.",
-    body: "Nous calculons la marge nette de chaque projet en temps réel — coûts humains, coûts fixes, rémunérations. Et prépare l'intégration native des coûts de génération IA pour piloter et donc optimiser votre rentabilité de demain.",
+    body: "Nous calculons la marge de chaque projet en temps réel — coûts RH, rémunérations externes, coûts fixes, dépenses IA. Vous pilotez chaque projet individuellement, et votre business globalement, pour augmenter votre marge.",
   },
   {
     n: "03",
-    title: "Humain ou IA : vous prenez encore cette décision à l'instinct.",
-    body: "Nous modélisons les coûts et la marge de chaque type de production : sessions studio classiques, génération IA, ou hybride — pour que vous arbitriez sur des chiffres, pas sur des impressions.",
+    title: "Vos outils existants fonctionnent, mais ne communiquent pas entre eux.",
+    body: "Votre nouvel ERP devient la source de vérité — il est connecté à vos calendriers, votre CRM, vos outils RH. Vous évitez la double saisie et les erreurs.",
   },
 ];
 
@@ -236,11 +236,28 @@ function Pains() {
   );
 }
 
-const steps = [
+type Step = {
+  n: string;
+  title: string;
+  body: string;
+  price?: string;
+  items?: string[];
+  note?: string;
+};
+
+const steps: Step[] = [
   {
     n: "01",
     title: "Audit",
+    price: "4 000 € HT",
     body: "Plusieurs ateliers sur site pour cartographier vos process et vos données business, créer une architecture système, et dessiner une expérience utilisateur.",
+    items: [
+      "Interviews de la direction et des utilisateurs principaux (admins, chargés de production, etc.)",
+      "Architecture du système (diagramme ERD)",
+      "Workflows principaux (diagrammes swimlanes)",
+      "Design de l'expérience utilisateur via des maquettes",
+    ],
+    note: "2 versions de chaque livrable, pour intégrer vos retours.",
   },
   {
     n: "02",
@@ -305,10 +322,30 @@ function Process() {
               <div className="text-sm font-display font-medium text-primary tracking-wider mb-4 transition-transform duration-300 ease-out group-hover:translate-x-1">
                 {s.n}
               </div>
-              <h3 className="text-xl md:text-2xl font-medium leading-snug mb-3 transition-colors duration-300 group-hover:text-primary">
-                {s.title}
-              </h3>
+              <div className="flex items-center flex-wrap gap-3 mb-3">
+                <h3 className="text-xl md:text-2xl font-medium leading-snug transition-colors duration-300 group-hover:text-primary">
+                  {s.title}
+                </h3>
+                {s.price && (
+                  <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                    {s.price}
+                  </span>
+                )}
+              </div>
               <p className="text-secondary/70 leading-relaxed font-normal">{s.body}</p>
+              {s.items && (
+                <ul className="mt-5 space-y-2.5">
+                  {s.items.map((item) => (
+                    <li key={item} className="flex gap-2.5 text-sm text-secondary/70 leading-relaxed">
+                      <span className="mt-2 h-1 w-1 rounded-full bg-primary shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {s.note && (
+                <p className="mt-5 text-sm text-secondary/50 italic">{s.note}</p>
+              )}
             </motion.div>
           ))}
         </StaggerGroup>
