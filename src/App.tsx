@@ -4,6 +4,7 @@ import clientLogo from "@/assets/client-logo.png";
 import vincent from "@/assets/vincent.jpg";
 import { Reveal, StaggerGroup, staggerItem } from "@/components/Reveal";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { Analytics } from "@vercel/analytics/react";
 
 const CAL_URL = "https://cal.com/vincent-dompeyre/rdv-de-decouverte";
 
@@ -57,10 +58,18 @@ function Header() {
           />
         </a>
         <nav className="hidden md:flex items-center gap-10 text-sm text-secondary/80">
-          <a href="#enjeux" className="hover:text-primary transition-colors">Enjeux</a>
-          <a href="#methode" className="hover:text-primary transition-colors">Méthode</a>
-          <a href="#vision" className="hover:text-primary transition-colors">Vision</a>
-          <a href="#qui" className="hover:text-primary transition-colors">À propos</a>
+          <a href="#enjeux" className="hover:text-primary transition-colors">
+            Enjeux
+          </a>
+          <a href="#methode" className="hover:text-primary transition-colors">
+            Méthode
+          </a>
+          <a href="#vision" className="hover:text-primary transition-colors">
+            Vision
+          </a>
+          <a href="#qui" className="hover:text-primary transition-colors">
+            À propos
+          </a>
         </nav>
         <a
           href={CAL_URL}
@@ -107,7 +116,8 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="mt-8 text-lg md:text-xl text-secondary/70 max-w-2xl leading-relaxed font-medium"
           >
-            Nous co-construisons avec vous un ERP sur-mesure, adapté à vos process et à votre équipe.
+            Nous co-construisons avec vous un ERP sur-mesure, adapté à vos process et à votre
+            équipe.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -122,8 +132,18 @@ function Hero() {
               className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-base font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-0.5"
             >
               Prendre un rendez-vous
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none">
-                <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M1 8h14M9 2l6 6-6 6"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </a>
           </motion.div>
@@ -166,12 +186,14 @@ function Proof() {
 const pains = [
   {
     n: "01",
-    title: "La planification de vos productions mobilise vos chargés de prod. Au détriment du pilotage.",
+    title:
+      "La planification de vos productions mobilise vos chargés de prod. Au détriment du pilotage.",
     body: "Nous centralisons la vision de vos ressources : intervenants humains, studios, matériels — pour que votre équipe arbitre vite, sans aller-retour. Vous maximisez l'occupation de vos studios, et donc votre chiffre d'affaires.",
   },
   {
     n: "02",
-    title: "Vous savez que certains projets vous coûtent plus qu'ils ne rapportent. Mais vous ne savez pas lesquels.",
+    title:
+      "Vous savez que certains projets vous coûtent plus qu'ils ne rapportent. Mais vous ne savez pas lesquels.",
     body: "Nous calculons la marge de chaque projet en temps réel — coûts RH, rémunérations externes, coûts fixes, dépenses IA. Vous pilotez chaque projet individuellement, et votre business globalement, pour augmenter votre marge.",
   },
   {
@@ -186,7 +208,9 @@ function Pains() {
     <section id="enjeux" className="lg:py-28 overflow-hidden py-[60px]">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="max-w-2xl mb-20">
-          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">Les enjeux</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">
+            Les enjeux
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
             Trois angles morts qui freinent les studios aujourd'hui.
           </h2>
@@ -259,7 +283,9 @@ function Process() {
     <section id="methode" className="lg:py-28 bg-accent/10 overflow-hidden py-[60px]">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="max-w-2xl mb-20">
-          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">Méthode</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">
+            Méthode
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
             Comment nous construisons votre ERP.
           </h2>
@@ -319,16 +345,17 @@ function Process() {
               {s.items && (
                 <ul className="mt-5 space-y-2.5">
                   {s.items.map((item) => (
-                    <li key={item} className="flex gap-2.5 text-sm text-secondary/70 leading-relaxed">
+                    <li
+                      key={item}
+                      className="flex gap-2.5 text-sm text-secondary/70 leading-relaxed"
+                    >
                       <span className="mt-2 h-1 w-1 rounded-full bg-primary shrink-0" />
                       {item}
                     </li>
                   ))}
                 </ul>
               )}
-              {s.note && (
-                <p className="mt-5 text-sm text-secondary/50 italic">{s.note}</p>
-              )}
+              {s.note && <p className="mt-5 text-sm text-secondary/50 italic">{s.note}</p>}
             </motion.div>
           ))}
         </StaggerGroup>
@@ -339,7 +366,10 @@ function Process() {
 
 function Vision() {
   return (
-    <section id="vision" className="relative py-20 lg:py-28 bg-secondary text-background overflow-hidden">
+    <section
+      id="vision"
+      className="relative py-20 lg:py-28 bg-secondary text-background overflow-hidden"
+    >
       <motion.div
         aria-hidden
         className="absolute -right-24 top-1/2 -translate-y-1/2 w-[28rem] h-[28rem] rounded-full bg-primary/20 blur-3xl pointer-events-none"
@@ -348,12 +378,16 @@ function Vision() {
       />
       <div className="relative mx-auto max-w-6xl px-6 lg:px-10">
         <Reveal className="max-w-3xl">
-          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-8 font-bold">Vision</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-8 font-bold">
+            Vision
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-background">
             Vers une production pilotée par l'IA.
           </h2>
           <p className="mt-10 text-lg md:text-xl text-background/75 leading-relaxed font-normal">
-            Les plateformes de génération IA transforment la production audiovisuelle. D120 prépare dès aujourd'hui les outils qui permettront demain de lire un brief client, estimer un coût IA maximal, et créer un projet automatiquement.
+            Les plateformes de génération IA transforment la production audiovisuelle. D120 prépare
+            dès aujourd'hui les outils qui permettront demain de lire un brief client, estimer un
+            coût IA maximal, et créer un projet automatiquement.
           </p>
         </Reveal>
       </div>
@@ -367,16 +401,30 @@ function About() {
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
         <div className="grid md:grid-cols-12 gap-12">
           <Reveal className="md:col-span-4">
-            <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">À propos</div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">Qui est D120</h2>
+            <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6 font-bold">
+              À propos
+            </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
+              Qui est D120
+            </h2>
           </Reveal>
           <div className="md:col-span-8 md:pt-2">
-            <StaggerGroup className="space-y-6 text-lg text-secondary/80 leading-relaxed font-normal" stagger={0.15}>
+            <StaggerGroup
+              className="space-y-6 text-lg text-secondary/80 leading-relaxed font-normal"
+              stagger={0.15}
+            >
               <motion.p variants={staggerItem}>
-                Vincent a un TDAH. Depuis toujours, il ne supporte pas l'information éparpillée. Ingénieur de formation, commercial pendant 6 ans, il a développé par nécessité une obsession : <span className="text-secondary font-normal">centraliser, structurer, rendre lisible ce qui ne l'est pas.</span>
+                Vincent a un TDAH. Depuis toujours, il ne supporte pas l'information éparpillée.
+                Ingénieur de formation, commercial pendant 6 ans, il a développé par nécessité une
+                obsession :{" "}
+                <span className="text-secondary font-normal">
+                  centraliser, structurer, rendre lisible ce qui ne l'est pas.
+                </span>
               </motion.p>
               <motion.p variants={staggerItem}>
-                En découvrant la production audiovisuelle, il a trouvé son terrain : un secteur exigeant, en pleine mutation avec l'IA, et encore très dépendant d'Excel pour piloter des projets complexes.
+                En découvrant la production audiovisuelle, il a trouvé son terrain : un secteur
+                exigeant, en pleine mutation avec l'IA, et encore très dépendant d'Excel pour
+                piloter des projets complexes.
               </motion.p>
               <motion.p variants={staggerItem}>
                 D120 est né de cette rencontre, entre une méthode et un métier qui en avait besoin.
@@ -413,8 +461,18 @@ function FinalCTA() {
             className="group inline-flex items-center gap-3 rounded-full bg-secondary px-8 py-4 text-base font-medium text-background transition-all hover:bg-secondary/90 hover:shadow-2xl hover:-translate-y-0.5"
           >
             Prendre un rendez-vous
-            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 16 16" fill="none">
-              <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              className="w-4 h-4 transition-transform group-hover:translate-x-1"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M1 8h14M9 2l6 6-6 6"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </a>
         </div>
@@ -428,7 +486,10 @@ function Footer() {
     <footer className="border-t border-border/60 py-10">
       <div className="mx-auto max-w-6xl px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-secondary/60">
         <div>
-          <span className="font-display font-medium text-secondary">D120</span> — <a href="mailto:vincent@d120.fr" className="hover:text-primary transition-colors">vincent@d120.fr</a>
+          <span className="font-display font-medium text-secondary">D120</span> —{" "}
+          <a href="mailto:vincent@d120.fr" className="hover:text-primary transition-colors">
+            vincent@d120.fr
+          </a>
         </div>
         <div>© {new Date().getFullYear()} D120. Tous droits réservés.</div>
       </div>
@@ -452,6 +513,7 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 }

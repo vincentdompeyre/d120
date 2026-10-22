@@ -39,11 +39,11 @@
   --radius: 0.5rem;
 
   /* Brand */
-  --background: oklch(0.985 0.012 90);          /* #FFFCF4 */
-  --foreground: oklch(0.42 0 0);                /* #545454 */
-  --primary: oklch(0.76 0.12 45);               /* #F69C74 */
+  --background: oklch(0.985 0.012 90); /* #FFFCF4 */
+  --foreground: oklch(0.42 0 0); /* #545454 */
+  --primary: oklch(0.76 0.12 45); /* #F69C74 */
   --primary-foreground: oklch(0.985 0.012 90);
-  --secondary: oklch(0.42 0 0);                 /* #545454 */
+  --secondary: oklch(0.42 0 0); /* #545454 */
   --secondary-foreground: oklch(0.985 0.012 90);
 
   --card: oklch(0.985 0.012 90);
@@ -81,7 +81,12 @@
     text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
     color: var(--color-secondary);
     letter-spacing: -0.02em;
