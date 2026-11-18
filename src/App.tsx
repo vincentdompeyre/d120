@@ -350,10 +350,10 @@ function Vision() {
         <Reveal className="max-w-3xl">
           <div className="text-xs uppercase tracking-[0.2em] text-primary mb-8 font-bold">Vision</div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-background">
-            Vers une production pilotée par l'IA.
+            Une production assistée par l'IA.
           </h2>
           <p className="mt-10 text-lg md:text-xl text-background/75 leading-relaxed font-normal">
-            Les plateformes de génération IA transforment la production audiovisuelle. D120 prépare dès aujourd'hui les outils qui permettront demain de lire un brief client, estimer un coût IA maximal, et créer un projet automatiquement.
+            L'IA peut transformer votre manière de chiffrer un projet. D120 prépare dès aujourd'hui les outils qui permettront demain de lire un brief client, estimer les dépenses, et préparer le projet pour votre validation.
           </p>
         </Reveal>
       </div>
