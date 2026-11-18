@@ -7,7 +7,7 @@ import { AnimatedNumber } from "@/components/AnimatedNumber";
 
 const CAL_URL = "https://cal.com/vincent-dompeyre/rdv-de-decouverte";
 
-const VIMEO_ID = "1239925536";
+const VIMEO_ID = "1248144272";
 
 function DemoVideo() {
   return (
