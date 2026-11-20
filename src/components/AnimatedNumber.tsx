@@ -14,7 +14,12 @@ export function AnimatedNumber({ value, duration = 1400 }: AnimatedNumberProps) 
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.6 });
   const reduce = useReducedMotion();
-  const [display, setDisplay] = useState(reduce ? value : 0);
+  // La valeur finale est dans le HTML pré-rendu (lue par les robots) ; l'animation repart de 0 côté navigateur.
+  const [display, setDisplay] = useState(value);
+
+  useEffect(() => {
+    if (!reduce) setDisplay(0);
+  }, [reduce]);
 
   useEffect(() => {
     if (!inView || reduce) return;
