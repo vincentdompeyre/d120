@@ -1,4 +1,5 @@
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView, useScroll, useSpring, useTransform } from "framer-motion";
 import logo from "@/assets/d120-logo.png";
 import clientLogo from "@/assets/client-logo.png";
 import vincent from "@/assets/vincent.jpg";
@@ -10,6 +11,10 @@ const CAL_URL = "https://cal.com/vincent-dompeyre/rdv-de-decouverte";
 const VIMEO_ID = "1248818735";
 
 function DemoVideo() {
+  // Le lecteur Vimeo n'est chargé qu'à l'arrivée de la vidéo à l'écran : elle démarre alors au début.
+  const frameRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(frameRef, { once: true, amount: 0.4 });
+
   return (
     <section className="lg:py-28 bg-accent/20 overflow-hidden py-[40px]">
       <div className="mx-auto max-w-6xl px-6 lg:px-10">
@@ -17,13 +22,18 @@ function DemoVideo() {
           <div className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Aperçu</div>
         </Reveal>
         <Reveal>
-          <div className="relative aspect-video rounded-2xl overflow-hidden border border-border/60 bg-background shadow-xl">
-            <iframe
-              src={`https://player.vimeo.com/video/${VIMEO_ID}?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0`}
-              className="absolute inset-0 h-full w-full"
-              allow="autoplay; fullscreen; picture-in-picture"
-              title="Démo D120 — interface de pilotage"
-            />
+          <div
+            ref={frameRef}
+            className="relative aspect-video rounded-2xl overflow-hidden border border-border/60 bg-background shadow-xl"
+          >
+            {inView && (
+              <iframe
+                src={`https://player.vimeo.com/video/${VIMEO_ID}?background=1&autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0`}
+                className="absolute inset-0 h-full w-full"
+                allow="autoplay; fullscreen; picture-in-picture"
+                title="Démo D120 — interface de pilotage"
+              />
+            )}
           </div>
         </Reveal>
       </div>
